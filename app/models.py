@@ -16,7 +16,7 @@ class User (UserMixin,db.Model):
     profile_pic_path = db.Column(db.String(150),default ='default.png')
     hashed_password = db.Column(db.String(255),nullable = False)
     blog = db.relationship('Blog', backref='user', lazy='dynamic')
-    comment = db.relationship('Comment', backref='user', lazy='dynamic')
+    comments = db.relationship('Comment', backref='user', lazy='dynamic')
     
     @property
     def set_password(self):
@@ -47,8 +47,8 @@ class Blog(db.Model):
     title = db.Column(db.String(255),nullable=False)
     content = db.Column(db.Text(),nullable=False)
     posted = db.Column(db.DateTime,default=datetime.utcnow)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    comment = db.relationship('Comment', backref='blog', lazy='dynamic')
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    comments = db.relationship('Comment', backref='blog', lazy='dynamic')
 
     def save(self):
         db.session.add(self)
@@ -72,8 +72,8 @@ class Comment(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     comment = db.Column(db.String)
     posted = db.Column(db.DateTime,default=datetime.utcnow)
-    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    blog_id = db.Column(db.Integer,db.ForeignKey("blogs.id"))
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
     def save(self):
         db.session.add(self)
