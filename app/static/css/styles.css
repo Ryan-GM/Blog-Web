@@ -1,0 +1,65 @@
+.reg{
+    padding: 20px;
+}
+.account-img {
+    height: 250px;
+    width: 250px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  .landing{
+      margin-top: 2%;
+  }
+  .blog-img{
+    height: 80px;
+    width: 80px;
+    
+    margin-bottom: 16px;
+  }
+  #usern{
+      margin-left: 20px;
+  }
+  #form,#profileupdate{
+      display: none;
+  }
+  .cardquote{
+      background-color:rgba(116, 116, 116, 0.786);
+      padding: 3%;
+  }
+  #submit{
+      background-color: green;
+      border-radius: 5px;
+  }
+  #profbutton,#ref,#subs{
+    border-radius: 5px;  
+  }
+  .navbarbg{
+      background-color: #2c0f01;
+  }
+  body{
+    color: rgb(46, 2, 2);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+  }
+  .bg{
+      background-color: rgba(255, 255, 255, 0.924);
+      padding: 4px;
+      color: black;
+      border-radius: 6px;
+  }
+  h1,h4{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+  }
+  .black{
+      color: black;
+  }
+#modalComment{
+    border-radius: 5px;
+}
+.singleblog{
+    background-color: rgba(255, 255, 255, 0.924);  
+    color: black;
+}
