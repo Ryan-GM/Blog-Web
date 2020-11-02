@@ -7,13 +7,13 @@ from ..email import mail_message
 import os
 import secrets
 from flask_login import login_required,current_user
-from app.models import User,Blogs,Comment,Sub
+from app.models import User,Blog,Comment,Sub
 
 @main.route('/')
 def index():
     quotes = get_quotes()
     page = request.args.get('page',1, type = int)
-    blog = Blogs.query.order_by(Blogs.posted.desc()).paginate(page = page,per_page = 3)
+    blog = Blog.query.order_by(Blog.posted.desc()).paginate(page = page,per_page = 3)
     return render_template('index.html',quote = quotes,blogs = blog)
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
@@ -132,4 +132,4 @@ def user_posts(username):
     user = User.query.filter_by(username=username).first()
     page = request.args.get('page',1, type = int )
     blogs = Blog.query.filter_by(user=user).order_by(Blog.posted.desc()).paginate(page = page, per_page = 4)
-    return render_template('userposts.html',blogs=blogs,user = user)
+    return render_template('posts.html',blogs=blogs,user = user)
