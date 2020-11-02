@@ -3,7 +3,7 @@ from app.models import User
 from app import create_app,db
 from flask_migrate import Migrate, MigrateCommand
 
-app = create_app('development')
+app = create_app('production')
 
 manager = Manager(app)
 migrate = Migrate(app,db)
@@ -21,7 +21,7 @@ def test():
     '''
     import unittest
     tests = unittest.TestLoader().discover('tests')
-    unittest.TextTestRunner(verbosity=2).run(tests)
+    unittest.TextTestRunner(verbosity=5).run(tests)
 
 if __name__ == '__main__':
     manager.run()
